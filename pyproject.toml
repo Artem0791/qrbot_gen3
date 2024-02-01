@@ -7,6 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+aiogram = "^3.3.0"
+qrcode = "^7.4.2"
+pydantic = "2.5.3"
+pydantic-settings = "^2.1.0"
 
 
 [build-system]

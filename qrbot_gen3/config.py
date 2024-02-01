@@ -18,3 +18,4 @@ class QRCodeConfig(BaseModel):
 
 class UserMessage(BaseModel):
     url: str = AnyUrl
+

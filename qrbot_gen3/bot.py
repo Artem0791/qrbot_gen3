@@ -7,12 +7,13 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, FSInputFile
 from aiogram.utils.markdown import hbold
 import qrcode
-from config import Config, QRCodeConfig, UserMessage
+from config import Config
+from .types import QRCode, UserMessage
 
 from pydantic import ValidationError
 
 config = Config()
-qr_config = QRCodeConfig
+qr_config = QRCode()
 
 bot = Bot(token=config.bot_token, parse_mode="HTML")
 dp = Dispatcher()

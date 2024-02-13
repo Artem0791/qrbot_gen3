@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import Message, CallbackQuery, FSInputFile
 import qrcode
 from config import Config
+from qrbot_gen3.logger import logger
 from qrbot_gen3.types import QRCode, UserMessage
 
 from pydantic import ValidationError
@@ -21,6 +22,7 @@ async def handle_create(callback_query: CallbackQuery):
 async def text_to_qr(message: Message):
     try:
         user_message = UserMessage(url=message.text)
+        logger.info(f"Received message by {message.from_user.id}: {message.text}")
         await message.answer("Received valid URL.")
 
         qr = qrcode.QRCode(version=1,

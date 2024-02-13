@@ -1,12 +1,12 @@
-from pydantic_settings import BaseSettings
-from pydantic import BaseModel, AnyUrl
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
+
+
+class Telegram(BaseSettings):
+    model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
+
+    bot_token: str = Field('BOT_TOKEN')
 
 
 class Config(BaseSettings):
-    bot_token: str
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = 'utf-8'
-
-
+    tg: Telegram = Telegram()
